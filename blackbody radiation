@@ -1,0 +1,24 @@
+%Plot the blackbody radiation using Matlab
+t1=750+273.15;%750
+t2=1000+273.15;%1000
+t3=1200+273.15;%1200
+lamta=0:0.01:3;
+c1=3.7418*10^-16;
+c2=1.4388*10^-2
+M1=10^-10*c1./(power(lamta*power(10,-6),5).*(exp(c2./(lamta*power(10,-6)*t1))-1));
+M2=10^-10*c1./(power(lamta*power(10,-6),5).*(exp(c2./(lamta*power(10,-6)*t2))-1));
+M3=10^-10*c1./(power(lamta*power(10,-6),5).*(exp(c2./(lamta*power(10,-6)*t3))-1));
+plot(lamta,M1);
+hold on
+plot(lamta,M2);
+hold on
+plot(lamta,M3);
+%legend('750\circC','1000\circC','1200\circC');
+xlim([0,3]);
+ylim([0,12]);
+text(2.2,1.6,'750\circC','FontSize',16);
+text(2.0,4.5,'1000\circC','FontSize',16);
+text(1.8,9.2,'1200\circC','FontSize',16);
+xlabel('\lambda/\mum');
+ylabel('M_{\lambda,T} / W\cdotcm^{-2}\cdot\mum^{-1}')
+set(gca,'Fontsize',20)
